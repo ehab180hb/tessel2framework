@@ -1,6 +1,8 @@
 import * as five from 'johnny-five'
 import { redButton, greenButton, blueButton } from '../../button/button.handler'
 import { PIN } from '../../board/board.model'
+import { ButtonsPinLayout } from '../../config'
+const { redButtonPin, greenButtonPin, blueButtonPin } = ButtonsPinLayout
 
 describe('Buttons handler', () => {
   let buttonSpy: { e: any; fn: any; pin: PIN }
@@ -18,20 +20,20 @@ describe('Buttons handler', () => {
     redButton(testFn)
     expect(buttonSpy.e).toBe('press')
     expect(buttonSpy.fn).toBe(testFn)
-    expect(buttonSpy.pin).toBe(PIN.b5)
+    expect(buttonSpy.pin).toBe(redButtonPin)
   })
 
   test('Green button works', () => {
     greenButton(testFn)
     expect(buttonSpy.e).toBe('press')
     expect(buttonSpy.fn).toBe(testFn)
-    expect(buttonSpy.pin).toBe(PIN.b6)
+    expect(buttonSpy.pin).toBe(greenButtonPin)
   })
 
   test('Blue button works', () => {
     blueButton(testFn)
     expect(buttonSpy.e).toBe('press')
     expect(buttonSpy.fn).toBe(testFn)
-    expect(buttonSpy.pin).toBe(PIN.b7)
+    expect(buttonSpy.pin).toBe(blueButtonPin)
   })
 })
