@@ -1,0 +1,232 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LCD events attachScreenUpdate() works with custom parameters 1`] = `
+Object {
+  "cursor": [MockFunction] {
+    "calls": Array [
+      Array [
+        0,
+        0,
+      ],
+      Array [
+        0,
+        0,
+      ],
+      Array [
+        1,
+        0,
+      ],
+      Array [
+        1,
+        0,
+      ],
+    ],
+    "results": Array [
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+    ],
+  },
+  "print": [MockFunction] {
+    "calls": Array [
+      Array [
+        "                ",
+      ],
+      Array [
+        "hi",
+      ],
+      Array [
+        "                ",
+      ],
+      Array [
+        "hello",
+      ],
+    ],
+    "results": Array [
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+    ],
+  },
+}
+`;
+
+exports[`LCD events attachScreenUpdate() works with default parameters 1`] = `
+Object {
+  "cursor": [MockFunction] {
+    "calls": Array [
+      Array [
+        0,
+        0,
+      ],
+      Array [
+        0,
+        0,
+      ],
+      Array [
+        1,
+        0,
+      ],
+      Array [
+        1,
+        0,
+      ],
+    ],
+    "results": Array [
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+    ],
+  },
+  "print": [MockFunction] {
+    "calls": Array [
+      Array [
+        "                ",
+      ],
+      Array [
+        "                ",
+      ],
+      Array [
+        "                ",
+      ],
+      Array [
+        "                ",
+      ],
+    ],
+    "results": Array [
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+    ],
+  },
+}
+`;
+
+exports[`LCD events updateButtons() Works with custom parameters 1`] = `
+Object {
+  "cursor": [MockFunction] {
+    "calls": Array [
+      Array [
+        0,
+        0,
+      ],
+      Array [
+        0,
+        0,
+      ],
+      Array [
+        1,
+        0,
+      ],
+      Array [
+        1,
+        0,
+      ],
+    ],
+    "results": Array [
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+    ],
+  },
+  "print": [MockFunction] {
+    "calls": Array [
+      Array [
+        "                ",
+      ],
+      Array [
+        "I'm green",
+      ],
+      Array [
+        "                ",
+      ],
+      Array [
+        "therefore I exist",
+      ],
+    ],
+    "results": Array [
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+    ],
+  },
+}
+`;

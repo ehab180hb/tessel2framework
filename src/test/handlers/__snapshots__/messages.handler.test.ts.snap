@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Messages handler newMessage() Clears row and prints message 1`] = `
+Object {
+  "cursor": [MockFunction] {
+    "calls": Array [
+      Array [
+        0,
+        0,
+      ],
+      Array [
+        0,
+        0,
+      ],
+    ],
+    "results": Array [
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+    ],
+  },
+  "print": [MockFunction] {
+    "calls": Array [
+      Array [
+        "                ",
+      ],
+      Array [
+        "myMessage",
+      ],
+    ],
+    "results": Array [
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+      Object {
+        "isThrow": false,
+        "value": [Circular],
+      },
+    ],
+  },
+}
+`;
