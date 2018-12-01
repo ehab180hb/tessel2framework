@@ -1,39 +1,162 @@
 import * as five from 'johnny-five'
-import { redButton, greenButton, blueButton } from '../../button/button.handler'
+
+import {
+  createdButtons,
+  checkButtonExistence,
+  findOrCreateButton,
+  createButton,
+  initDefaultButtons,
+  findButton,
+  clearButton,
+  updateButton,
+  updateButtonPress,
+} from '../../button/button.handler'
 import { PIN } from '../../board/board.model'
-import { ButtonsPinLayout } from '../../config'
-const { redButtonPin, greenButtonPin, blueButtonPin } = ButtonsPinLayout
+let buttonOnSpy: string[] = []
+let buttonRemoveListenerSpy: string[] = []
 
-describe('Buttons handler', () => {
-  let buttonSpy: { e: any; fn: any; pin: PIN }
-  const testFn = () => 'x'
+beforeEach(() => {
+  buttonOnSpy = []
+  buttonRemoveListenerSpy = []
+  ;(five.Button as any) = jest.fn(pin => ({
+    on: (e: string, fn: Function) => {
+      buttonOnSpy.push(JSON.stringify({ e, fn: fn.name, pin }))
+    },
+    removeAllListeners: (e?: string) => {
+      buttonRemoveListenerSpy.push(JSON.stringify({ e, pin }))
+    },
+  }))
+  ;(createdButtons as any) = [
+    {
+      name: 'red',
+      pin: PIN.b5,
+      listener: new five.Button(PIN.b5),
+    },
+    {
+      name: 'green',
+      pin: PIN.b6,
+      listener: new five.Button(PIN.b6),
+    },
+    {
+      name: 'blue',
+      pin: PIN.b7,
+      listener: new five.Button(PIN.b7),
+    },
+  ]
+})
 
-  beforeEach(() => {
-    ;(five.Button as any) = jest.fn(pin => ({
-      on: (e: any, fn: any) => {
-        buttonSpy = { e, fn, pin }
-      },
-    }))
+describe('Button handler tests', () => {
+  describe('checkButtonExistence()', () => {
+    test('When button exists', () => {
+      const res = checkButtonExistence(PIN.b5, 'red')
+      expect(res).toMatchSnapshot()
+    })
+    test('When button does not exit', () => {
+      const res = checkButtonExistence(PIN.b1, 'white')
+      expect(res).toMatchSnapshot()
+    })
   })
-
-  test('Red button works', () => {
-    redButton(testFn)
-    expect(buttonSpy.e).toBe('press')
-    expect(buttonSpy.fn).toBe(testFn)
-    expect(buttonSpy.pin).toBe(redButtonPin)
+  describe('findOrCreateButton()', () => {
+    test('when button exists', () => {
+      const res = findOrCreateButton(PIN.b5, 'red')
+      expect(res).toMatchSnapshot()
+    })
+    test('when button does not exist', () => {
+      const res = findOrCreateButton(PIN.b1, 'white')
+      expect(res).toMatchSnapshot()
+    })
   })
-
-  test('Green button works', () => {
-    greenButton(testFn)
-    expect(buttonSpy.e).toBe('press')
-    expect(buttonSpy.fn).toBe(testFn)
-    expect(buttonSpy.pin).toBe(greenButtonPin)
+  describe('createButton()', () => {
+    test('when pin and name are available', () => {
+      const res = createButton(PIN.b2, 'white')
+      expect(res).toMatchSnapshot()
+    })
+    test('when pin is occupied', async () => {
+      expect(() => createButton(PIN.b5, 'white')).toThrowErrorMatchingSnapshot()
+    })
+    test('when name is taken', () => {
+      expect(() => createButton(PIN.b1, 'red')).toThrowErrorMatchingSnapshot()
+    })
   })
-
-  test('Blue button works', () => {
-    blueButton(testFn)
-    expect(buttonSpy.e).toBe('press')
-    expect(buttonSpy.fn).toBe(testFn)
-    expect(buttonSpy.pin).toBe(blueButtonPin)
+  describe('initDefaultButtons()', () => {
+    test('when buttons are available', () => {
+      const mockDefaultButtons = [
+        {
+          name: 'white',
+          pin: PIN.b1,
+        },
+        {
+          name: 'black',
+          pin: PIN.b2,
+        },
+        {
+          name: 'purple',
+          pin: PIN.b3,
+        },
+      ]
+      initDefaultButtons(mockDefaultButtons)
+      expect(createdButtons).toMatchSnapshot()
+    })
+    test('when buttons are not available', () => {
+      const mockDefaultButtons = [
+        {
+          name: 'red',
+          pin: PIN.b5,
+        },
+        {
+          name: 'green',
+          pin: PIN.b6,
+        },
+        {
+          name: 'blue',
+          pin: PIN.b7,
+        },
+      ]
+      initDefaultButtons(mockDefaultButtons)
+      expect(createdButtons).toMatchSnapshot()
+    })
+  })
+  describe('findButton()', () => {
+    test('when button exists', () => {
+      const res = findButton('red')
+      expect(res).toMatchSnapshot()
+    })
+    test('when button does not exist', () => {
+      const res = findButton('white')
+      expect(res).toBeFalsy()
+    })
+  })
+  describe('clearButton()', () => {
+    test('when button exists', () => {
+      clearButton('red')
+      expect(buttonRemoveListenerSpy).toMatchSnapshot()
+    })
+    test('when button exists and event type specified', () => {
+      clearButton('red', 'press')
+      expect(buttonRemoveListenerSpy).toMatchSnapshot()
+    })
+    test('when button does not exist', () => {
+      expect(() => clearButton('white')).toThrowErrorMatchingSnapshot()
+    })
+  })
+  describe('updateButton()', () => {
+    const cb = () => {}
+    test('when button exists', () => {
+      updateButton('red', 'hold', cb)
+      expect({ buttonRemoveListenerSpy, buttonOnSpy }).toMatchSnapshot()
+    })
+    test('when button does not exist', () => {
+      expect(() => updateButton('white', 'hold', cb)).toThrowErrorMatchingSnapshot()
+    })
+  })
+  describe('updateButtonPress()', () => {
+    const cb = () => {}
+    test('when button exists', () => {
+      updateButtonPress('red', cb)
+      expect({ buttonRemoveListenerSpy, buttonOnSpy }).toMatchSnapshot()
+    })
+    test('when button does not exist', () => {
+      expect(() => updateButtonPress('white', cb)).toThrowErrorMatchingSnapshot()
+    })
   })
 })

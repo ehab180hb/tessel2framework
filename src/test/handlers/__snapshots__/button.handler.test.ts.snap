@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button handler tests checkButtonExistence() When button does not exit 1`] = `
+Object {
+  "nameTaken": undefined,
+  "pinOccupied": undefined,
+}
+`;
+
+exports[`Button handler tests checkButtonExistence() When button exists 1`] = `
+Object {
+  "nameTaken": Object {
+    "listener": Object {
+      "on": [Function],
+      "removeAllListeners": [Function],
+    },
+    "name": "red",
+    "pin": 13,
+  },
+  "pinOccupied": Object {
+    "listener": Object {
+      "on": [Function],
+      "removeAllListeners": [Function],
+    },
+    "name": "red",
+    "pin": 13,
+  },
+}
+`;
+
+exports[`Button handler tests clearButton() when button does not exist 1`] = `"Button white does not exist"`;
+
+exports[`Button handler tests clearButton() when button exists 1`] = `
+Array [
+  "{\\"pin\\":13}",
+]
+`;
+
+exports[`Button handler tests clearButton() when button exists and event type specified 1`] = `
+Array [
+  "{\\"e\\":\\"press\\",\\"pin\\":13}",
+]
+`;
+
+exports[`Button handler tests createButton() when name is taken 1`] = `"Button name red is taken"`;
+
+exports[`Button handler tests createButton() when pin and name are available 1`] = `
+Object {
+  "listener": Object {
+    "on": [Function],
+    "removeAllListeners": [Function],
+  },
+  "name": "white",
+  "pin": 10,
+}
+`;
+
+exports[`Button handler tests createButton() when pin is occupied 1`] = `"Pin 13 is occupied"`;
+
+exports[`Button handler tests findButton() when button exists 1`] = `
+Object {
+  "listener": Object {
+    "on": [Function],
+    "removeAllListeners": [Function],
+  },
+  "name": "red",
+  "pin": 13,
+}
+`;
+
+exports[`Button handler tests findOrCreateButton() when button does not exist 1`] = `
+Object {
+  "listener": Object {
+    "on": [Function],
+    "removeAllListeners": [Function],
+  },
+  "name": "white",
+  "pin": 9,
+}
+`;
+
+exports[`Button handler tests findOrCreateButton() when button exists 1`] = `
+Object {
+  "listener": Object {
+    "on": [Function],
+    "removeAllListeners": [Function],
+  },
+  "name": "red",
+  "pin": 13,
+}
+`;
+
+exports[`Button handler tests initDefaultButtons() when buttons are available 1`] = `
+Array [
+  Object {
+    "listener": Object {
+      "on": [Function],
+      "removeAllListeners": [Function],
+    },
+    "name": "red",
+    "pin": 13,
+  },
+  Object {
+    "listener": Object {
+      "on": [Function],
+      "removeAllListeners": [Function],
+    },
+    "name": "green",
+    "pin": 14,
+  },
+  Object {
+    "listener": Object {
+      "on": [Function],
+      "removeAllListeners": [Function],
+    },
+    "name": "blue",
+    "pin": 15,
+  },
+  Object {
+    "listener": Object {
+      "on": [Function],
+      "removeAllListeners": [Function],
+    },
+    "name": "white",
+    "pin": 9,
+  },
+  Object {
+    "listener": Object {
+      "on": [Function],
+      "removeAllListeners": [Function],
+    },
+    "name": "black",
+    "pin": 10,
+  },
+  Object {
+    "listener": Object {
+      "on": [Function],
+      "removeAllListeners": [Function],
+    },
+    "name": "purple",
+    "pin": 11,
+  },
+]
+`;
+
+exports[`Button handler tests initDefaultButtons() when buttons are not available 1`] = `
+Array [
+  Object {
+    "listener": Object {
+      "on": [Function],
+      "removeAllListeners": [Function],
+    },
+    "name": "red",
+    "pin": 13,
+  },
+  Object {
+    "listener": Object {
+      "on": [Function],
+      "removeAllListeners": [Function],
+    },
+    "name": "green",
+    "pin": 14,
+  },
+  Object {
+    "listener": Object {
+      "on": [Function],
+      "removeAllListeners": [Function],
+    },
+    "name": "blue",
+    "pin": 15,
+  },
+]
+`;
+
+exports[`Button handler tests updateButton() when button does not exist 1`] = `"Button white does not exist"`;
+
+exports[`Button handler tests updateButton() when button exists 1`] = `
+Object {
+  "buttonOnSpy": Array [
+    "{\\"e\\":\\"hold\\",\\"fn\\":\\"cb\\",\\"pin\\":13}",
+  ],
+  "buttonRemoveListenerSpy": Array [
+    "{\\"e\\":\\"hold\\",\\"pin\\":13}",
+  ],
+}
+`;
+
+exports[`Button handler tests updateButtonPress() when button does not exist 1`] = `"Button white does not exist"`;
+
+exports[`Button handler tests updateButtonPress() when button exists 1`] = `
+Object {
+  "buttonOnSpy": Array [
+    "{\\"e\\":\\"press\\",\\"fn\\":\\"cb\\",\\"pin\\":13}",
+  ],
+  "buttonRemoveListenerSpy": Array [
+    "{\\"e\\":\\"press\\",\\"pin\\":13}",
+  ],
+}
+`;

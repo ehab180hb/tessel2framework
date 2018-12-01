@@ -1,5 +1,6 @@
 import { attachScreenUpdate, updateScreen } from '../../lcd/lcd.events'
 import { initComponents } from '../../init'
+import { initDefaultButtons } from '../../button/button.handler'
 const lcd: any = {
   cursor: (x: any, y: any) => {},
   print: (x: any) => 'x',
@@ -8,6 +9,7 @@ describe('LCD events', () => {
   beforeEach(() => {
     lcd.cursor = jest.fn(() => lcd)
     lcd.print = jest.fn(() => lcd)
+    ;(initDefaultButtons as any) = jest.fn(() => {})
   })
   describe('attachScreenUpdate()', () => {
     test('works with default parameters', () => {
