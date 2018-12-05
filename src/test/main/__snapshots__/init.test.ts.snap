@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`init tests Button update methods attacher is called 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Array [
+        Object {
+          "name": "red",
+          "pin": 13,
+        },
+        Object {
+          "name": "green",
+          "pin": 14,
+        },
+        Object {
+          "name": "blue",
+          "pin": 15,
+        },
+      ],
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
+  ],
+}
+`;
