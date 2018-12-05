@@ -16,3 +16,8 @@ export const defaultButtons = [
 ]
 
 export const LCDPins: PIN[] = [PIN.a2, PIN.a3, PIN.a4, PIN.a5, PIN.a6, PIN.a7]
+
+export const welcomeMessage = {
+  row1: 'Skynet',
+  row2: 'started here',
+}

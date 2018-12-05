@@ -1,7 +1,12 @@
 {
-  "name": "basic",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "tessel2_firmware",
+  "description": "An out-of-the-box-ready development framework to write Tessel 2 firmwares",
+  "author": {
+    "name": "Ehab Khaireldin",
+    "email": "ehabkhaireldin@gmail.com",
+    "url": "https://github.com/ehab180hb"
+  },
+  "version": "0.1.0",
   "license": "MIT",
   "dependencies": {
     "johnny-five": "^1.0.0",
