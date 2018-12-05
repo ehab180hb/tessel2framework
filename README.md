@@ -1,7 +1,7 @@
 
 # Tessel 2 firmware development framework
 
-This project is intended to give you a kick start developing firmwares from [Tessel 2](https://tessel.io/) devices.
+This project is intended to give you a kick start developing a firmware for [Tessel 2](https://tessel.io/) devices.
 
 ## Prerequisites
 
@@ -17,8 +17,8 @@ You'll need to make sure both your screen and buttons are properly connected. Co
 
 ## First run
 
-1. Make sure your Tessel 2 device is properly conneted to your computer.
-2. Run `yarn` to install the dependancies. 
+1. Make sure your Tessel 2 device is properly connected to your computer.
+2. Run `yarn` to install the dependencies. 
 3. Run `yarn start` to transpile the code from Typescript to Javascript and run the firmware the device.
 4. Run `yarn start:prod` when you're ready to flash the firmware into the device.
 
@@ -26,4 +26,4 @@ You'll need to make sure both your screen and buttons are properly connected. Co
 
 After running `yarn start` you should see the following:
 
-![](https://i.imgur.com/NKYwMru.jpg =400x)
+![](https://i.imgur.com/NKYwMru.jpg)
