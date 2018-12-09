@@ -10,11 +10,13 @@
   "license": "MIT",
   "dependencies": {
     "johnny-five": "^1.0.0",
+    "socket.io-client": "^2.2.0",
     "tessel-io": "^1.2.0"
   },
   "devDependencies": {
     "@types/jest": "^23.3.9",
     "@types/johnny-five": "^0.0.38",
+    "@types/socket.io-client": "^1.4.32",
     "jest": "^23.6.0",
     "jest-junit": "^5.2.0",
     "nodemon": "^1.18.2",

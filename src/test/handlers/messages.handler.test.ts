@@ -1,20 +1,17 @@
-import { newMessage } from '../../messages/messages.handler'
+import { messageHandler } from '../../messages/messages.handler'
+import { mockLCD } from '../mocks/lcd.mock'
 
-const lcd: any = {
-  cursor: (x: any, y: any) => {},
-  print: (x: any) => 'x',
-}
-
+let lcd: any
 describe('Messages handler', () => {
   beforeEach(() => {
+    lcd = mockLCD()
     lcd.cursor = jest.fn(() => lcd)
     lcd.print = jest.fn(() => lcd)
   })
 
   describe('newMessage()', () => {
     test('Clears row and prints message', () => {
-      const writeMessage = newMessage(lcd)
-      writeMessage(0, 'myMessage')
+      messageHandler.printMessage(0, 'myMessage')
       expect(lcd).toMatchSnapshot()
     })
   })

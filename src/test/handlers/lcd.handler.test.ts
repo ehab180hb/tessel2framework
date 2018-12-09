@@ -1,5 +1,5 @@
 import * as five from 'johnny-five'
-import { getLcd } from '../../lcd/lcd.handler'
+import { lcdHandler } from '../../lcd/lcd.handler'
 import { LCDPins } from '../../config'
 
 describe('LCD handler', () => {
@@ -9,7 +9,7 @@ describe('LCD handler', () => {
 
   describe('getBoard()', () => {
     test('returns properly instantiated LCD', () => {
-      const lcd = getLcd()
+      const lcd = lcdHandler.getLcd()
       expect(lcd).toMatchSnapshot()
       expect(five.LCD).toHaveBeenCalledWith({
         pins: LCDPins,
