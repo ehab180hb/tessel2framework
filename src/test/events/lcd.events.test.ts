@@ -1,14 +1,13 @@
 import { attachScreenUpdate, updateScreen } from '../../lcd/lcd.events'
 import { initComponents } from '../../init'
-import { initDefaultButtons } from '../../button/button.handler'
-import { lcdHandler } from '../../lcd/lcd.handler'
+import { buttonHandler } from '../../button/button.handler'
 import { mockLCD } from '../mocks/lcd.mock'
 let lcd: any
 
 describe('LCD events', () => {
   beforeEach(() => {
     lcd = mockLCD()
-    ;(initDefaultButtons as any) = jest.fn(() => {})
+    ;(buttonHandler.initDefaultButtons as any) = jest.fn(() => {})
   })
   describe('attachScreenUpdate()', () => {
     test('works with default parameters', () => {
